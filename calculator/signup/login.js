@@ -1,6 +1,9 @@
 let arrdata=JSON.parse(localStorage.getItem('signup'))||[]
-console.log(arrdata)
-document.querySelector('.form').addEventListener('submit',(e)=>{
+let arr=JSON.parse(localStorage.getItem('login'))
+
+//console.log(arr,'login')
+
+document.querySelector('.form').addEventListener('submit',(e,index)=>{
     e.preventDefault()
     
     
@@ -8,8 +11,8 @@ document.querySelector('.form').addEventListener('submit',(e)=>{
     let loginpassword=document.querySelector('.password').value
 //console.log(arrdata)
     let val=false
-    for(let i=0;i<=arrdata.length;i++){
-        let logincred=arrdata[0]
+    for(let i=0;i<arrdata.length;i++){
+        let logincred=arrdata[i]
         console.log( 'signup',logincred.email,'password',logincred.password)
         console.log('login',loginemail,'passwordlogin',loginpassword)
         if(logincred.email==loginemail &&logincred.password==loginpassword){
@@ -18,7 +21,7 @@ document.querySelector('.form').addEventListener('submit',(e)=>{
         }
     
         }
-        if(val==false){
+        if(val===false){
             alert('wrong credential login again')
         }else{
           let  user={
@@ -26,10 +29,23 @@ document.querySelector('.form').addEventListener('submit',(e)=>{
                 password:loginpassword
             }
             alert("login successfull")
-            
+       
+                 
             localStorage.setItem('login',JSON.stringify(user))
         }
-       // window.location='./signup.html'
-    })
 
+        // bolo kya dikkat ahai logout
+
+       
+          
+    })
+    document.querySelector('.logout').addEventListener('click',(e)=>{
+        // console.log(arr)
+        // arr.splice(index,1)
+        // kya hua m
+        // localStorage.setItem('login',JSON.stringify(arr))
+        console.log('llggin out')
+        localStorage.removeItem('login')
+        window.location.reload()
+      })
 
