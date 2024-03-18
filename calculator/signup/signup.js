@@ -32,6 +32,8 @@ let form=document.querySelector('.form').addEventListener('submit',(e)=>{
     dataarr.push(data)
     localStorage.setItem('signup',JSON.stringify(dataarr))
 
+    window.location.href='./login.html'
+
 })
 
 
