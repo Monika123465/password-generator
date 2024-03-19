@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="bmi">
+        <form>
+<input class="height" type="number" placeholder="enter your height" step="any"/><br>
+<input class="weight" type="number" placeholder="enter your weight" step="any"/><br>
+<input type="submit" value="calculate">
+</form>
+
+    </div>
+</body>
+</html>
+<script>
+    document.querySelector('form').addEventListener('submit',(e)=>{
+        e.preventDefault()
+        let height=document.querySelector('.height').value
+        let weight=document.querySelector('.weight').value
+        
+
+        let result=weight/(height*height)
+
+        if(result<=18.5){
+           console.log(result,'you are underweight')
+        }else if( result >18.5 && result <=24.9){
+           console.log(result,'you are normal')
+        }else if(24.9< result && result <=39.9){
+           console.log(result,'you are overweight')
+        }else {
+          console.log(result,'you are obesed')
+        }
+        
+        
+        
+
+    })
+</script>
+    
+    
