@@ -10,7 +10,7 @@ document.querySelector('.decrement').addEventListener("click",(e)=>{
         number--
     }
     
-    //console.log(number)
+    //console.log(number) ye dekho to sahe hai ya kise aur tarah se likhaata
     document.querySelector('.number').innerHTML=number
 })
 

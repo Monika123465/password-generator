@@ -1,16 +1,20 @@
-let strings=''
-let buttondiv=document.querySelectorAll('.button')
-
-Array.from(buttondiv).forEach((buttons)=>{
-    buttons.addEventListener('click',(e)=>{
-        e.preventDefault()
+let string=''
+let buttons=document.querySelectorAll('.button')
+Array.from(buttons).forEach((button)=>{
+    button.addEventListener('click',(e)=>{
         if(e.target.innerHTML=="="){
-            strings=eval(strings)
-            document.querySelector('.input-type').value=strings
+           string=eval(string)
+           document.querySelector('.input-type').value=string
         }else{
-            console.log(e.target.value)
-            strings+=e.target.innerHTML
-            document.querySelector('.input-type').value=strings
+            string+=e.target.innerHTML
+            console.log(string)
+            document.querySelector('.input-type').value=string
+        }
+
+        if(e.target.innerHTML=='x'){
+            string=""
+            document.querySelector('.input-type').value=string  
         }
     })
+
 })
