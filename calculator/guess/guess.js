@@ -30,6 +30,7 @@ function displayPreviousGuess(){
 }
 
 function displayGuessCount(){
+    
     let countdisplay=document.querySelector('.left')
     countdisplay.innerHTML="Guess Count:"+guessCount++
     let countwith=11-guessCount
