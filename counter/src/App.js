@@ -1,38 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
-import {useState} from "react"
+import {useState} from 'react'
 
 
 function App() {
-  const [count,setCount]=useState(0)
-  
- 
-  function increment(){
-    // if(count<0){
-    //   setCount(count+1)
-    // }
-    if(count<40){
-      const inc=count<40 ? setCount(count+1):count
-      //setCount(count+1)
-  
-    }
-    
-  }
-  function decrement(){
+  const[counter,SetCounter]=useState(0)
 
-    const dec=count>0 ? setCount(count-1):count
-    // if(count>0){
-    //   setCount(count-1)
-    // }
-    
+  function addValue(){
+    const count=counter<40 ? SetCounter(counter+1):counter
+    //SetCounter(counter+1)
+
   }
-  
+  function decreaseValue(){
+    //SetCounter(counter-1) 
+    const countdec=counter>0 ? SetCounter(counter-1):counter
+  }
   
   return (
    <div className='divbody'>
-   <div className='increment'  onClick={increment}><button >+ </button> </div>
-   <div className='Number'><p >{count}</p></div> 
-   <div className='decrement' onClick={decrement}><button >-</button></div>
+   <div className='increment' onClick={addValue} ><button >+ </button> </div>
+   <div className='Number'><p >{counter}</p></div> 
+   <div className='decrement' onClick={decreaseValue} ><button >-</button></div>
     </div>
   );
 }
