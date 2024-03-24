@@ -3,33 +3,43 @@ import './App.css';
 import { useState } from "react"
 
 function App() {
-  const [todo, setTodo] = useState([])
-  const [inputValue, setInputValue] = useState('')
+  const[inputValue,setInputvalue]=useState('')
+  const[todo,setTodo]=useState([])
 
-  const handleInputChange = (e) => {
-    const value = e.target.value;
-  setInputValue(value);
+function setInputvaluearr(e){
+  const data=e.target.value
+  //console.log(data)
+  setInputvalue(data)
+
 }
-const AddTodo=()=>{
-  setTodo([...todo,inputValue])
-  setInputValue('')
+const addValue=()=>{
+  if(inputValue !==''){
+    setTodo([...todo,inputValue])
+    setInputvalue("")
+  }
+  
 }
+const removeTodo=(index)=>{
+  const todofilter=todo.filter((_,i)=>i!==index)
+  setTodo(todofilter)
+  
+}
+//console.log(todo)
+
 return (
     < >
       <div className="input">
-        <input type="text" placeholder="enter todo" value={inputValue} onChange={handleInputChange} />
-        <button onClick={AddTodo} >ADD</button>
+        <input type="text" placeholder="enter todo" value={inputValue} onChange={setInputvaluearr}/>
+        <button onClick={addValue}>ADD</button>
       </div>
-    <ul>
-      {todo.map((todo,index)=>(
-        <li key={index}>{todo}</li>
-      ))}
-      
-    </ul>
-      
-      
-
-    </>
+      <ul>
+        {todo.map((todo,index)=>(
+          <li key={index}>{todo}  <button onClick={()=>removeTodo(index)}>Remove</button></li>
+          
+        ))}
+       
+      </ul>
+   </>
   );
 }
 
