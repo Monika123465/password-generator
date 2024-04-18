@@ -32,8 +32,9 @@ const Navbar = () => {
            <Typography component='div'>
            <ButtonGroup >
            <Button variant="outlined" ><Link to='product' >Product</Link></Button> 
-           <Button variant='outlined'><Link to='todo'>Todo</Link></Button> 
-           <Button varient='outlined'><Link to='login'>Login</Link></Button>
+           <Button variant='outlined'><Link to='addtodos'>Todo</Link></Button> 
+           <Button variant='outlined'><Link  to='todo'>TodoList</Link></Button>
+           <Button variant='outlined'><Link to='login'>Login</Link></Button>
             </ButtonGroup> 
              
             

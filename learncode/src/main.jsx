@@ -4,8 +4,9 @@ import App from './App.jsx'
 import Layout from './Pages/Layout.jsx'
 import Product from './Pages/Product.jsx'
 import Products from './Pages/Products.jsx'
-import Todo from './Pages/Todo.jsx'
+import AddTodos from './Pages/AddTodos.jsx'
 import Login  from './Components/Login/Login.jsx'
+import Todo from './Pages/Todo.jsx'
 import {
   QueryClient,
   QueryClientProvider,
@@ -13,6 +14,9 @@ import {
 } from '@tanstack/react-query'
 
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
+import {Provider} from 'react-redux'
+import { store } from './store/Store.jsx'
+
 
 const queryclient=new QueryClient()
 
@@ -32,12 +36,16 @@ const routers=createBrowserRouter([
       element:<Products/>
     },
     {
-      path:'Todo',
-      element:<Todo/>
+      path:'Addtodos',
+      element:<AddTodos/>
     },
     {
       path:'login',
       element:<Login/>
+    },
+    {
+      path:"todo",
+      element:<Todo/>
     }
     ]
     
@@ -46,11 +54,14 @@ const routers=createBrowserRouter([
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  
+  <Provider store={store}>
   <QueryClientProvider client={queryclient} >
   <RouterProvider router={routers}>
+    
     <App />
-  </RouterProvider></QueryClientProvider>
+  </RouterProvider>
+  </QueryClientProvider>
+  </Provider>
   
   
 )
