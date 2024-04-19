@@ -17,6 +17,7 @@ import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 import {Provider} from 'react-redux'
 import { store } from './store/Store.jsx'
 import Signup from './Components/signup/Signup.jsx'
+import ProductDetail from './Pages/ProductDetail.jsx'
 
 
 const queryclient=new QueryClient()
@@ -52,6 +53,10 @@ const routers=createBrowserRouter([
     {
       path:"todo",
       element:<Todo/>
+    },
+    {
+      path:'productdetail',
+      element:<ProductDetail/>
     }
     ]
     
