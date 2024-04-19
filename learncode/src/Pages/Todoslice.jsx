@@ -23,7 +23,8 @@ export const Todoslice=createSlice({
 
             state.todos=state.todos.filter((el)=>el.id!==action.payload)
 
-        }
+        },
+       
     }
 })
 

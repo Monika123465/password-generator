@@ -87,7 +87,7 @@ const PageMove=(pagecount)=>{
     gap:'45px'
    }}>
   <TextField variant='filled' type='text' placeholder="SEARCH" size='small' sx={{
-    width:"1315px",border:'transparent',marginLeft:'30px'
+    width:"1000px",border:'transparent',marginLeft:'200px'
   }} onChange={debounce((e)=>{
     setSearchparams((prev)=>{
       prev.set('qu',e.target.value)

@@ -33,8 +33,8 @@ const Navbar = () => {
            <ButtonGroup >
            <Button variant="outlined" ><Link to='product' >Product</Link></Button> 
            <Button variant='outlined'><Link to='addtodos'>Todo</Link></Button> 
-           <Button variant='outlined'><Link  to='todo'>TodoList</Link></Button>
-           <Button variant='outlined'><Link to='login'>Login</Link></Button>
+           <Button variant='outlined'><Link to='signin'>Login</Link></Button>
+           
             </ButtonGroup> 
              
             

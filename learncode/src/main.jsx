@@ -16,6 +16,7 @@ import {
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 import {Provider} from 'react-redux'
 import { store } from './store/Store.jsx'
+import Signup from './Components/signup/Signup.jsx'
 
 
 const queryclient=new QueryClient()
@@ -40,8 +41,13 @@ const routers=createBrowserRouter([
       element:<AddTodos/>
     },
     {
+      path:'signin',
+      element:<Signup/>
+    },
+    {
       path:'login',
       element:<Login/>
+
     },
     {
       path:"todo",

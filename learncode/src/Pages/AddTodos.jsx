@@ -9,13 +9,16 @@ const AddTodos = () => {
 const[input,setInput]=useState('')
 
 const dispatch=useDispatch()
+const navigate=useNavigate()
 
 const addTodoHandler=(e)=>{
     e.preventDefault()
     dispatch(addTodo(input))
-    setInput('')
-   
+  setInput('')
+  navigate('../todo')
 }
+   
+  
 
   return (
     <>
