@@ -4,35 +4,21 @@ import { Container, Typography,Box,Grid,Card,Avatar, CardContent, TextField, But
 import {Link} from '@mui/material'
 import { useSearchParams } from "react-router-dom";
 import debounce from 'lodash.debounce';
+import useCategoryHook from '../hooks/useCategoryHook';
+import useProductHook from '../hooks/useProductHook';
 
 const ProductDetail =() => {
   const[searchparams,setSearchparams]=useSearchParams({skip:0,limit:4});
   const limit= parseInt(searchparams.get('limit')||0)
   const skip=parseInt(searchparams.get('skip')||0)
   const q=searchparams.get('q')||0
+  const category=searchparams.get('category')||''
+
+  const {data: categories} = useCategoryHook();
+  const {data: product, isLoading, error} = useProductHook({limit, q, skip,category})
   
   
-  const {isLoading,error,data:product}=useQuery({
-        queryKey:['product',limit,skip,q],
-        queryFn:async()=>{
-       const data=await fetch(`https://dummyjson.com/products?limit=${limit}&skip=${skip}&q=${q}`)
-           .then((res)=>(res.json()))
-           return data.products
-           
-         },
-         placeholderData:keepPreviousData,
-         staleTime:10000
-        })
-        const {data:categories}=useQuery({
-          queryKey:['categories'],
-          queryFn:
-          async()=>{
-            const data=await fetch('https://dummyjson.com/products/categories')
-            .then((res)=>(res.json()))
-            return (data)
-         }
-        
-        })
+ 
           
         const PageMove=(pagecount)=>{
           setSearchparams((prev)=>{
@@ -57,6 +43,7 @@ const ProductDetail =() => {
   onChange={debounce((e)=>{
     setSearchparams((prev)=>{
       prev.set('q',e.target.value)
+      prev.delete('category')
      prev.set('skip',0)
      return prev
     })
@@ -64,12 +51,25 @@ const ProductDetail =() => {
   />
  <select style={{
     width:'300px'
-  }}  >
+  }}
+  onChange={(e)=>{
+    setSearchparams((prev)=>{
+      prev.set('skip',0)
+      prev.delete('q')
+      prev.set('category',e.target.value)
+        return prev
+    })
+  }
+    
+    
+  }
+  >
     <option>Categries</option>
     
      {categories?.map((data)=>{
       
-    <option key={data}> {data}</option>
+
+    return <option key={data}> {data}</option>
     })}
     
  
