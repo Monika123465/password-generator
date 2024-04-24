@@ -28,7 +28,7 @@ const ProductDetail =() => {
 
         }
         
-       // console.log('hii',categories)
+  
     if(isLoading) return <Typography>...Loading</Typography>
     if(error) return <Typography>Error:{error}</Typography>
     return (

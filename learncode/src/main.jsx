@@ -18,6 +18,7 @@ import {Provider} from 'react-redux'
 import { store } from './store/Store.jsx'
 import Signup from './Components/signup/Signup.jsx'
 import ProductDetail from './Pages/ProductDetail.jsx'
+import Parrel from './Pages/Parrel.jsx'
 
 
 const queryclient=new QueryClient()
@@ -57,6 +58,10 @@ const routers=createBrowserRouter([
     {
       path:'productdetail',
       element:<ProductDetail/>
+    },
+    {
+      path:'parrelproduct',
+      element:<Parrel/>
     }
     ]
     
