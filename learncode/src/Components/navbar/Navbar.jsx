@@ -35,7 +35,7 @@ const Navbar = () => {
            <Button variant='outlined'><Link to='addtodos'>Todo</Link></Button> 
            <Button variant='outlined'><Link to='signin'>Login</Link></Button>
            <Button variant='outlined'><Link to='productdetail'>New Product</Link></Button>
-           <Button variant='outlined'><Link to='parrelproduct'></Link>Parrel</Button>
+           <Button variant='outlined'><Link to='parrelproduct'>Parrel</Link></Button>
            
             </ButtonGroup> 
              
